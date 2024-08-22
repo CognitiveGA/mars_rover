@@ -7,7 +7,7 @@
         <geometry>
           <mesh>
             <uri>model://landscape_sky/meshes/anime_sky.dae</uri>
-            <scale>0.5 0.5 0.5</scale>
+            <scale>0.2 0.2 0.2</scale>
           </mesh>
         </geometry>
         <cast_shadows>0</cast_shadows>

@@ -18,7 +18,7 @@
 
     <include>
       <uri>model://landscape_sky</uri>
-       <pose>0.0 0.0 0.0 0 0 0</pose>
+       <pose>0.0 0.0 10.0 0 0 0</pose>
     </include>
 
     <include>
