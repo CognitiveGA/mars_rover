@@ -24,11 +24,28 @@
     <include>
       <uri>model://plant_flower</uri>
        <pose>0 -5 -0.120157 0 0 0</pose>
+       <name>plant_flower_1</name>
+    </include>
+    <include>
+      <uri>model://plant_flower</uri>
+       <pose>0.1 -5.2 -0.120157 0 0 0</pose>
+       <name>plant_flower_2</name>
+    </include>
+    <include>
+      <uri>model://plant_flower</uri>
+       <pose>-0.2 -5.4 -0.120157 0 0 0</pose>
+       <name>plant_flower_3</name>
     </include>
 
     <include>
       <uri>model://crate</uri>
-       <pose>-0.367156 6.713346 0.0 0 0.0 0</pose>
+       <pose>-1.367156 2.713346 0.0 0 0.0 0</pose>
+    </include>
+
+
+    <include>
+      <uri>model://rock</uri>
+       <pose>1.367156 -2.713346 0.0 0 0.0 0</pose>
     </include>
 
 
