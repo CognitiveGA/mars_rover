@@ -41,7 +41,7 @@
         <range>200</range>
         <constant>0.0</constant>
         <linear>0.0</linear>
-        <quadratic>0.0001</quadratic>
+        <quadratic>0.0005</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>

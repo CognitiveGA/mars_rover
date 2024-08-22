@@ -10,7 +10,6 @@
     <grid>false</grid>
     </scene>
 
-
     <include>
       <uri>model://space_terrain_v2</uri>
        <pose>0.0 1.903278 -0.131218 0 0 0</pose>
@@ -20,6 +19,17 @@
       <uri>model://landscape_space</uri>
        <pose>0.0 0.0 0.0 0 0 0</pose>
     </include>
+
+    <include>
+      <uri>model://plant_alien</uri>
+       <pose>0 -5 0.0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://lost_astronaut</uri>
+       <pose>-4.061165 16.176437 0.106268 0 0.010450 0</pose>
+    </include>
+
 
     
 
@@ -31,7 +41,7 @@
         <range>200</range>
         <constant>0.0</constant>
         <linear>0.0</linear>
-        <quadratic>0.0005</quadratic>
+        <quadratic>0.0001</quadratic>
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
