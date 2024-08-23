@@ -49,7 +49,6 @@
     </include>
 
 
-    
 
     <light name='user_point_light_1' type='point'>
       <pose>0.0 -8.0 25.0 0 -0 0</pose>
@@ -65,7 +64,12 @@
       <direction>0 0 -1</direction>
     </light>
     
-
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <ros>
+        <namespace>/gazebo</namespace>
+      </ros>
+      <update_rate>5.0</update_rate>
+    </plugin>
 
   </world>
 </sdf>

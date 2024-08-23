@@ -34,7 +34,7 @@
       <uri>model://alien1</uri>
        <pose>13.463735 16.715622 0.636261 0 0 0</pose>
     </include>
-    
+
 
     <light name='user_point_light_1' type='point'>
       <pose>0.0 -8.0 25.0 0 -0 0</pose>
@@ -49,6 +49,13 @@
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
     </light>
+
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <ros>
+        <namespace>/gazebo</namespace>
+      </ros>
+      <update_rate>5.0</update_rate>
+    </plugin>
     
 
 
