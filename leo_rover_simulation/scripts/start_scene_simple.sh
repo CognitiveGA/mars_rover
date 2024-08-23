@@ -7,7 +7,7 @@ sudo rm -r /home/user/.ros
 if [ "$1" = "debug" ]; then
     export ROS2_WS_PATH=/home/user/ros2_ws
 else
-    export ROS2_WS_PATH=/home/kodama/TheConstruct/ros2_basics_update_ws
+    export ROS2_WS_PATH=/home/simulations/ros2_sims_ws
 fi
 
 # We set up the environment for ROS2
