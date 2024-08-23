@@ -24,6 +24,14 @@ install(
   DIRECTORY launch  urdf models meshes worlds
   DESTINATION share/${PROJECT_NAME}
 )
+
+install(PROGRAMS
+scripts/spawn_entity.py
+scripts/remove_entity.py
+scripts/pose_entity.py
+DESTINATION lib/${PROJECT_NAME}
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

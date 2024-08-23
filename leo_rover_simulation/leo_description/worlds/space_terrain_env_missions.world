@@ -30,7 +30,10 @@
        <pose>-4.061165 16.176437 0.106268 0 0.010450 0</pose>
     </include>
 
-
+    <include>
+      <uri>model://alien1</uri>
+       <pose>-2 10 0.1 0 0 0</pose>
+    </include>
     
 
     <light name='user_point_light_1' type='point'>

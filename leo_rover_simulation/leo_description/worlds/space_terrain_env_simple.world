@@ -39,13 +39,13 @@
 
     <include>
       <uri>model://crate</uri>
-       <pose>-1.367156 2.713346 0.0 0 0.0 0</pose>
+       <pose>-1.367156 2.713346 -0.1 0 0.0 0</pose>
     </include>
 
 
     <include>
       <uri>model://rock</uri>
-       <pose>1.367156 -2.713346 0.0 0 0.0 0</pose>
+       <pose>1.367156 -2.713346 -0.1 0 0.0 0</pose>
     </include>
 
 
