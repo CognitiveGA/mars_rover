@@ -4,6 +4,7 @@
       <static>0</static>
         <link name='link_1'>
             <visual name='visual'>
+            <visibility_flags>1</visibility_flags>
             <pose frame=''>0 0 0 0 0 0</pose>
             <geometry>
             <mesh>
@@ -25,7 +26,7 @@
 
         <inertial>
             <!-- Set the mass of the box -->
-            <mass value="100.0"/>
+            <mass value="0.1"/>
 
             <!-- Inertia matrix values for a uniform box -->
             <!-- Ixx = Iyy = Izz = (1/12) * mass * (length^2 + height^2) -->

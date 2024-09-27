@@ -188,7 +188,7 @@
       <parent link="${link_prefix}base_link"/>
       <child link="${link_prefix}rocker_L_link"/>
       <axis xyz="0 1 0"/>
-      <limit effort="100.0" lower="-0.24" upper="0.24" velocity="100.0"/>
+      <limit effort="100.0" lower="-0.01" upper="0.01" velocity="100.0"/>
       <dynamics friction="1.0" damping="0.1"/>
     </joint>
 
@@ -197,7 +197,7 @@
       <parent link="${link_prefix}base_link"/>
       <child link="${link_prefix}rocker_R_link"/>
       <axis xyz="0 1 0"/>
-      <limit effort="100.0" lower="-0.24" upper="0.24" velocity="100.0"/>
+      <limit effort="100.0" lower="-0.01" upper="0.01" velocity="100.0"/>
       <dynamics friction="1.0" damping="0.1"/> 
       <mimic joint="rocker_L_joint"/>
     </joint>
@@ -487,7 +487,7 @@
     </gazebo>
 
     <!-- rocker differential -->
-    <gazebo>
+    <!-- <gazebo>
       <plugin name="leo_gz_DifferentialSystem" filename="libleo_gazebo_differential_plugin.so">
         <jointA>rocker_L_joint</jointA>
         <jointB>rocker_R_joint</jointB>
@@ -497,11 +497,10 @@
         <jointWheelFR>wheel_FR_joint</jointWheelFR>
         <jointWheelRR>wheel_RR_joint</jointWheelRR>
 
-
         <robot_base_frame>base_footprint</robot_base_frame>
         <forceConstant>100.0</forceConstant>
       </plugin>
-    </gazebo>
+    </gazebo> -->
 
 
 
@@ -515,60 +514,72 @@
       </sensor>
     </gazebo>
 
-
     <gazebo>
+        <plugin name="four_diff_controller" filename="libgazebo_ros_diff_drive.so">
+            <update_rate>30</update_rate>
+            <num_wheel_pairs>2</num_wheel_pairs>
+            <left_joint>wheel_FL_joint</left_joint>
+            <right_joint>wheel_FR_joint</right_joint>
+            <left_joint>wheel_RL_joint</left_joint>
+            <right_joint>wheel_RR_joint</right_joint>
+            <wheel_separation>0.358</wheel_separation>
+            <wheel_diameter>0.13</wheel_diameter>
+            <max_wheel_torque>20</max_wheel_torque>
+            <max_wheel_acceleration>1.0</max_wheel_acceleration>
+            <command_topic>cmd_vel</command_topic>
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+            <odometry_topic>odom</odometry_topic>
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_footprint</robot_base_frame>
+            <odometry_source>1</odometry_source>
+        </plugin> 
+    </gazebo>
+
+    <!-- <gazebo>
       <plugin filename="libgazebo_ros_diff_drive.so" name="four_diff_controller">
         <left_joint>wheel_FL_joint</left_joint>
         <right_joint>wheel_FR_joint</right_joint>
-        <!-- kinematics -->
+
         <wheel_separation>0.358</wheel_separation>
         <wheel_diameter>0.13</wheel_diameter>
-        <!-- limits -->
+
         <max_wheel_torque>20</max_wheel_torque>
         <max_wheel_acceleration>1.0</max_wheel_acceleration>
-        <!-- output -->
+
         <publish_odom>true</publish_odom>
         <publish_odom_tf>true</publish_odom_tf>
-        <publish_wheel_tf>false</publish_wheel_tf>
+        <publish_wheel_tf>true</publish_wheel_tf>
         <odometry_topic>odom</odometry_topic>
         <odometry_frame>odom</odometry_frame>
         <robot_base_frame>base_footprint</robot_base_frame>
         <odometry_source>1</odometry_source>
         <command_topic>cmd_vel</command_topic>
-        <ros>
-            <!-- <remapping>odom:=/odometry</remapping> -->
-        </ros>
       </plugin>
     </gazebo>
-
 
     <gazebo>
       <plugin filename="libgazebo_ros_diff_drive.so" name="four_diff_controller2">
         <left_joint>wheel_RL_joint</left_joint>
         <right_joint>wheel_RR_joint</right_joint>
-        <!-- kinematics -->
+
         <wheel_separation>0.358</wheel_separation>
         <wheel_diameter>0.13</wheel_diameter>
-        <!-- limits -->
+
         <max_wheel_torque>20</max_wheel_torque>
         <max_wheel_acceleration>1.0</max_wheel_acceleration>
-        <!-- output -->
-        <publish_odom>true</publish_odom>
+
+        <publish_odom>false</publish_odom>
         <publish_odom_tf>true</publish_odom_tf>
-        <publish_wheel_tf>false</publish_wheel_tf>
+        <publish_wheel_tf>true</publish_wheel_tf>
         <odometry_topic>odom</odometry_topic>
         <odometry_frame>odom</odometry_frame>
         <robot_base_frame>base_footprint</robot_base_frame>
         <odometry_source>1</odometry_source>
         <command_topic>cmd_vel</command_topic>
-        <ros>
-            <!-- <remapping>odom:=/odometry</remapping> -->
-        </ros>
       </plugin>
-    </gazebo>
-
-
-
+    </gazebo> -->
 
   </xacro:macro>
 

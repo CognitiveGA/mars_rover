@@ -17,19 +17,29 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(action_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 install(
-  DIRECTORY launch  urdf models meshes worlds
+  DIRECTORY launch urdf models meshes worlds action config map
   DESTINATION share/${PROJECT_NAME}
 )
 
 install(PROGRAMS
 scripts/spawn_entity.py
 scripts/remove_entity.py
-scripts/pose_entity.py
+scripts/meteor_crater.py
+scripts/rotate_action_server.py
+scripts/rotate_action_server2.py
+scripts/go_to_pose_server.py
 DESTINATION lib/${PROJECT_NAME}
+)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "action/GoToPose.action"
+  "action/Rotate.action"
 )
 
 if(BUILD_TESTING)
