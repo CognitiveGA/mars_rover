@@ -32,7 +32,6 @@ scripts/spawn_entity.py
 scripts/remove_entity.py
 scripts/meteor_crater.py
 scripts/rotate_action_server.py
-scripts/rotate_action_server2.py
 scripts/go_to_pose_server.py
 DESTINATION lib/${PROJECT_NAME}
 )

@@ -1,7 +1,9 @@
+
+ 
 import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, TimerAction
-from launch.conditions import IfCondition
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
+from launch.conditions import IfCondition, UnlessCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command, LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
@@ -16,6 +18,7 @@ def generate_launch_description():
     robot_name_in_model = 'leo'
     rviz_config_file_path = 'rviz/limo.rviz'
     urdf_file_path = 'urdf/leo_sim.urdf.xacro'
+    # world_file = 'l4rralde_gym.world'
     world_file = 'space_terrain_env_missions.world'
 
     # Pose where we want to spawn the robot
@@ -133,20 +136,17 @@ def generate_launch_description():
 
  
     # Launch the robot
-    spawn_entity_cmd = TimerAction(
-        period=30.0,  # Wait for 30 seconds
-        actions=[Node(
-            package='gazebo_ros', 
-            executable='spawn_entity.py',
-            arguments=['-entity', robot_name_in_model, 
-                        '-topic', 'robot_description',
-                        '-timeout', '120.0',
-                            '-x', spawn_x_val,
-                            '-y', spawn_y_val,
-                            '-z', spawn_z_val,
-                            '-Y', spawn_yaw_val],
-                            output='screen')]
-    )
+    spawn_entity_cmd = Node(
+    package='gazebo_ros', 
+    executable='spawn_entity.py',
+    arguments=['-entity', robot_name_in_model, 
+                '-topic', 'robot_description',
+                '-timeout', '120.0',
+                    '-x', spawn_x_val,
+                    '-y', spawn_y_val,
+                    '-z', spawn_z_val,
+                    '-Y', spawn_yaw_val],
+                    output='screen')
     
     # We add teh gazebo model path to be able to us ethe package: in XACROS and not the file:
     # Plugins
@@ -205,5 +205,7 @@ def generate_launch_description():
     ld.add_action(start_gazebo_client_cmd)
     ld.add_action(spawn_entity_cmd)
     ld.add_action(start_robot_state_publisher_cmd)
+    # ld.add_action(start_dummy_sensors)
+    #ld.add_action(start_rviz_cmd)
 
     return ld
