@@ -5,9 +5,9 @@ sudo rm -r /home/user/.ros
 
 # Check if the first argument is 'debug'
 if [ "$1" = "debug" ]; then
-    export ROS2_WS_PATH=/home/user/ros2_ws
+    export ROS2_WS_PATH=/home/shady/Documents/TheConstruct/0x01-BasicROS2/0x01-ROS2-basics-in-5-days-python/ros2_sim_ws
 else
-    export ROS2_WS_PATH=/home/simulations/ros2_sims_ws
+    export ROS2_WS_PATH=/home/shady/Documents/TheConstruct/0x01-BasicROS2/0x01-ROS2-basics-in-5-days-python/ros2_sim_ws
 fi
 
 # We set up the environment for ROS2
