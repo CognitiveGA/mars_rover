@@ -1,18 +1,24 @@
 #! /usr/bin/env bash
 
-# We remove a folder that otherwise gives issues in ROS2 launches
-sudo rm -r /home/user/.ros
+W_PATH="/home/shady/Documents/unige_robotics_msc/0x02_second_year_2nd_semster/cogar/cogar_ros2_ws"
 
-# Check if the first argument is 'debug'
-if [ "$1" = "debug" ]; then
-    export ROS2_WS_PATH=/home/shady/Documents/TheConstruct/0x01-BasicROS2/0x01-ROS2-basics-in-5-days-python/ros2_sim_ws
+# Reset PYTHONPATH to include only necessary paths
+export PYTHONPATH="${W_PATH}/install/lib/python3.8/site-packages:/opt/ros/humble/lib/python3.8/site-packages"
+
+# Source ROS 2 humble
+source /opt/ros/humble/setup.bash
+
+# Source Gazebo environment
+source /usr/share/gazebo/setup.sh
+
+# Source the workspace setup if available
+SIM_SETUP="${W_PATH}/install/setup.bash"
+if [ -f "${SIM_SETUP}" ]; then
+    source "${SIM_SETUP}"
 else
-    export ROS2_WS_PATH=/home/shady/Documents/TheConstruct/0x01-BasicROS2/0x01-ROS2-basics-in-5-days-python/ros2_sim_ws
+    echo "Error: ${SIM_SETUP} not found."
+    exit 1
 fi
-
-# We set up the environment for ROS2
-. /usr/share/gazebo/setup.sh
-. ${ROS2_WS_PATH}/install/setup.bash
 
 export GAZEBO_RESOURCE_PATH=${ROS2_WS_PATH}/src/leo_rover_simulation/leo_description:${GAZEBO_RESOURCE_PATH}
 export GAZEBO_MODEL_PATH=${ROS2_WS_PATH}/src/leo_rover_simulation/leo_description:${GAZEBO_MODEL_PATH}
