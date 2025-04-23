@@ -1,5 +1,12 @@
 
- 
+"""
+The `generate_launch_description` function sets up a launch configuration for a simulation
+environment with Gazebo, RViz, and a robot model.
+:return: The `generate_launch_description()` function is being returned, which creates a
+LaunchDescription object containing various actions and configurations for launching a simulation
+environment with a robot in Gazebo.
+"""
+
 import os
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
